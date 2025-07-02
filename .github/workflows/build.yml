@@ -1,15 +1,10 @@
-# This file generates the build matrix for GitHub Actions.
-#
-# To use this, add a top-level `include:` key to this file, with a
-# list of boards/shields you want to build. For example:
-#
-# include:
-#   - board: nice_nano_v2
-#     shield: reviung41
-#
+name: Build
 
-include:
-  - board: nice_nano_v2
-    shield: ergo_ble_left
-  - board: nice_nano_v2
-    shield: ergo_ble_right
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
